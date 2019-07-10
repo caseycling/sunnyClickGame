@@ -1,6 +1,50 @@
 [
     {
         "id": 1,
-        "image": "./images/charlie-mom.png"
+        "image": "./charlie-mom/images/"
+    },
+    {
+        "id": 2,
+        "image": "./charlie/images/"
+    },
+    {
+        "id": 3,
+        "image": "./cricket/images/"
+    },
+    {
+        "id": 4,
+        "image": "./dee/images/"
+    },
+    {
+        "id": 5,
+        "image": "./dennis/images/"
+    },
+    {
+        "id": 6,
+        "image": "./frank/images/"
+    },
+    {
+        "id": 7,
+        "image": "./luther/images/"
+    },
+    {
+        "id": 8,
+        "image": "./mac/images/"
+    },
+    {
+        "id": 9,
+        "image": "./macs-mom/images/"
+    },
+    {
+        "id": 10,
+        "image": "./margret/images/"
+    },
+    {
+        "id": 11,
+        "image": "./mcpoyle/images/"
+    },
+    {
+        "id": 12,
+        "image": "./waitress/images/"
     }
 ]
