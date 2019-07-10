@@ -1,14 +1,23 @@
 import React from 'react';
-import DisplayCharacters from './components/index'
+import Header from './components/Header'
+import Jumbotron from './components/Jumbotron'
 import Images from './characters.json'
+import Card from './components/Card'
 
-function App() {
-  return <DisplayCharacters 
-    src={Images[0].image}
-    
-  />;
+class App extends React.Component {
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <Jumbotron />
+        <Card src={Images[0].image}/>
+          
+        
+      </div>
+    )
+  }
 }
 
-console.log(Images[0].image)
 
 export default App;
