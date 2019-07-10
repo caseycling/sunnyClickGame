@@ -6,14 +6,32 @@ import Card from './components/Card'
 
 class App extends React.Component {
 
+  //Set initial state of character cards
+  state = {
+
+  }
+
   render() {
     return (
       <div>
         <Header />
         <Jumbotron />
-        <Card src={Images[0].image}/>
-          
-        
+        <div>
+          <Card src={Images[0].image} />
+          <Card src={Images[1].image} />
+          <Card src={Images[2].image} />
+          <Card src={Images[3].image} />
+          <Card src={Images[4].image} />
+          <Card src={Images[5].image} />
+          <Card src={Images[6].image} />
+          <Card src={Images[7].image} />
+          <Card src={Images[8].image} />
+          <Card src={Images[9].image} />
+          <Card src={Images[10].image} />
+          <Card src={Images[11].image} />
+        </div>
+
+
       </div>
     )
   }
