@@ -1,6 +1,6 @@
 import React from "react";
 
-function DisplayCharacters()) {
+function Jumbotron() {
     return (
         <div className="container">
             <div className="jumbotron">
@@ -15,4 +15,4 @@ function DisplayCharacters()) {
     );
 }
 
-export default DisplayCharacters
+export default Jumbotron
