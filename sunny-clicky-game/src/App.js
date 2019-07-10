@@ -8,28 +8,37 @@ class App extends React.Component {
 
   //Set initial state of scores
   state = {
+    cards: Images,
     currentScore: 0,
     highScore: 0
   }
 
+
+
+  //If a player clicks a card with clicked value of false, 
+  // increase current by one and shuffle cards
+
+
+  //If a player clicks a card with clicked value of true, 
+  // reset current to zero and shuffle cards
+
+  //If current score is greater than high score, 
+  // make current score new high score
+
   render() {
+
+
     return (
       <div>
-        <Header current={this.state.currentScore} high={this.state.highScore}/>
+        <Header current={this.state.currentScore} high={this.state.highScore} />
         <Jumbotron />
         <div>
-          <Card src={Images[0].image} />
-          <Card src={Images[1].image} />
-          <Card src={Images[2].image} />
-          <Card src={Images[3].image} />
-          <Card src={Images[4].image} />
-          <Card src={Images[5].image} />
-          <Card src={Images[6].image} />
-          <Card src={Images[7].image} />
-          <Card src={Images[8].image} />
-          <Card src={Images[9].image} />
-          <Card src={Images[10].image} />
-          <Card src={Images[11].image} />
+          {this.state.cards.map(card => (
+            <Card src={card.image}
+              id={card.id}
+              clicked={card.clicked}
+            />
+          ))}
         </div>
 
 
