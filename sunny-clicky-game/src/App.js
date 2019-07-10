@@ -8,14 +8,14 @@ class App extends React.Component {
 
   //Set initial state of scores
   state = {
-    currentscore: 0,
-    highscore: 0
+    currentScore: 0,
+    highScore: 0
   }
 
   render() {
     return (
       <div>
-        <Header />
+        <Header current={this.state.currentScore} high={this.state.highScore}/>
         <Jumbotron />
         <div>
           <Card src={Images[0].image} />
