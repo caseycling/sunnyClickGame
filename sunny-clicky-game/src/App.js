@@ -6,9 +6,10 @@ import Card from './components/Card'
 
 class App extends React.Component {
 
-  //Set initial state of character cards
+  //Set initial state of scores
   state = {
-
+    currentscore: 0,
+    highscore: 0
   }
 
   render() {
