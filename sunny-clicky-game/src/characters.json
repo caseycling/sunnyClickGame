@@ -1,63 +1,63 @@
 [
     {
         "id": 1,
-        "image": "./charlie-mom/images/",
+        "image": "/images/charlie-mom.png",
         "clicked": false
     },
     {
         "id": 2,
-        "image": "./charlie/images/",
+        "image": "/images/charlie.png",
         "clicked": false
     },
     {
         "id": 3,
-        "image": "./cricket/images/",
+        "image": "/images/cricket.png",
         "clicked": false
     },
     {
         "id": 4,
-        "image": "./dee/images/",
+        "image": "/images/dee.png",
         "clicked": false
     },
     {
         "id": 5,
-        "image": "./dennis/images/",
+        "image": "/images/dennis.png",
         "clicked": false
     },
     {
         "id": 6,
-        "image": "./frank/images/",
+        "image": "/images/frank.png",
         "clicked": false
     },
     {
         "id": 7,
-        "image": "./luther/images/",
+        "image": "/images/luther.png",
         "clicked": false
 
     },
     {
         "id": 8,
-        "image": "./mac/images/",
+        "image": "/images/mac.png",
         "clicked": false
     },
     {
         "id": 9,
-        "image": "./macs-mom/images/",
+        "image": "/images/macs-mom.png",
         "clicked": false
     },
     {
         "id": 10,
-        "image": "./margret/images/",
+        "image": "/images/margret.png",
         "clicked": false
     },
     {
         "id": 11,
-        "image": "./mcpoyle/images/",
+        "image": "/images/mcpoyle.png",
         "clicked": false
     },
     {
         "id": 12,
-        "image": "./waitress/images/",
+        "image": "/images/waitress.png",
         "clicked": false
     }
 ]
