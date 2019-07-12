@@ -13,18 +13,40 @@ class App extends React.Component {
     highScore: 0
   }
 
+  //Build randomly displayed cards
+  shuffle = (cards) => {
+    let counter = cards.length;
+
+    // While there are elements in the cards
+    while (counter > 0) {
+      // Pick a random index
+      let index = Math.floor(Math.random() * counter);
+
+      // Decrease counter by 1
+      counter--;
+
+      // And swap the last element with it
+      let temp = cards[counter];
+      cards[counter] = cards[index];
+      cards[index] = temp;
+    }
+
+    return cards;
+  }
+
+
   //On clicking a card, check if its clicked value is true
   checkClick = (id) => {
-     let score = this.state.currentScore;
+    let score = this.state.currentScore;
     //If a player clicks a card with clicked value of false, 
-    if(this.state.cards[id-1].clicked === "false") {
+    if (this.state.cards[id - 1].clicked === "false") {
       // change clicked value to true, increase current by one and shuffle cards
       console.log("working")
       console.log(score)
       this.setState((curState) => ({
         currentScore: score + 1,
         cards: curState.cards.map(card => {
-          if(card.id === id) {
+          if (card.id === id) {
             card.clicked = "true"
           }
           return card;
@@ -32,28 +54,25 @@ class App extends React.Component {
         highScore: curState.highScore
       }))
       console.log(this.state.currentScore)
-    //If a player clicks a card with clicked value of true,   
+      //If a player clicks a card with clicked value of true,   
     } else {
       // change all cards clicked value to false, reset current to zero and shuffle cards
       this.setState({
         currentScore: 0,
-        
-        
+
+
       })
-      
+
+      this.shuffle(this.state.cards)
+
     }
-    console.log(this.state.cards[id-1])
-    
+    // console.log(this.state.cards[id - 1])
 
-  
- 
-  
-  
-
+  }
   //If current score is greater than high score, 
   // make current score new high score
 
-  }
+
 
   render() {
     return (
@@ -64,15 +83,15 @@ class App extends React.Component {
         <Jumbotron />
         <div>
           {this.state.cards.map(card => (
-            
-            <Card 
+
+            <Card
               key={card.id}
               image={card.image}
               id={card.id}
               clicked={card.clicked}
-              onClick={this.checkClick} 
+              onClick={this.checkClick}
             />
-            
+
           ))}
         </div>
       </div>
