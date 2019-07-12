@@ -36,7 +36,7 @@ class App extends React.Component {
 
   //Set high score with conditionals
   highScore = curScore => {
-    if(curScore > this.state.highScore) {
+    if (curScore > this.state.highScore) {
       this.setState({
         highScore: curScore
       })
@@ -51,7 +51,7 @@ class App extends React.Component {
       // change clicked value to true, increase current by one and shuffle cards
       console.log("working")
 
-      
+
       this.setState((curState) => ({
         currentScore: score + 1,
         cards: curState.cards.map(card => {
@@ -64,19 +64,17 @@ class App extends React.Component {
       }))
       // console.log(this.state.cards[id].id)
       // console.log(this.state.cards[id].clicked)
-      this.highScore(this.state.currentScore)
+
       //If a player clicks a card with clicked value of true,   
     } else {
       // change all cards clicked value to false, reset current to zero and shuffle cards
       this.setState({
         currentScore: 0,
-
-
       })
       // console.log('You Lose')
       // console.log(this.state.cards[id].id)
       // console.log(this.state.cards[id].clicked)
-      this.highScore(this.state.currentScore)
+
       this.shuffle(this.state.cards)
 
     }
@@ -96,6 +94,8 @@ class App extends React.Component {
         {/* Import jumbtoron component */}
         <Jumbotron />
         <div>
+          {/* Call highscore function here to avoid hoisting error */}
+          {this.highScore(this.state.currentScore)}
           {this.state.cards.map(card => (
 
             <Card
