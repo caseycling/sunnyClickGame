@@ -4,6 +4,7 @@ import Jumbotron from './components/Jumbotron'
 import Images from './characters.json'
 import Card from './components/Card'
 
+
 class App extends React.Component {
 
   //Set initial state of scores
@@ -30,19 +31,27 @@ class App extends React.Component {
       cards[counter] = cards[index];
       cards[index] = temp;
     }
-
     return cards;
   }
 
+  //Set high score with conditionals
+  highScore = curScore => {
+    if(curScore > this.state.highScore) {
+      this.setState({
+        highScore: curScore
+      })
+    }
+  }
 
   //On clicking a card, check if its clicked value is true
   checkClick = (id) => {
     let score = this.state.currentScore;
     //If a player clicks a card with clicked value of false, 
-    if (this.state.cards[id - 1].clicked === "false") {
+    if (this.state.cards[id].clicked === "false") {
       // change clicked value to true, increase current by one and shuffle cards
       console.log("working")
-      console.log(score)
+
+      
       this.setState((curState) => ({
         currentScore: score + 1,
         cards: curState.cards.map(card => {
@@ -53,7 +62,9 @@ class App extends React.Component {
         }),
         highScore: curState.highScore
       }))
-      console.log(this.state.currentScore)
+      // console.log(this.state.cards[id].id)
+      // console.log(this.state.cards[id].clicked)
+      this.highScore(this.state.currentScore)
       //If a player clicks a card with clicked value of true,   
     } else {
       // change all cards clicked value to false, reset current to zero and shuffle cards
@@ -62,7 +73,10 @@ class App extends React.Component {
 
 
       })
-
+      // console.log('You Lose')
+      // console.log(this.state.cards[id].id)
+      // console.log(this.state.cards[id].clicked)
+      this.highScore(this.state.currentScore)
       this.shuffle(this.state.cards)
 
     }
