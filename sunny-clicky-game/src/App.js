@@ -59,57 +59,50 @@ class App extends React.Component {
         highScore: curState.highScore
       }))
 
-      console.log("score")
-      console.log(this.state.cards[id].id)
-      console.log(this.state.cards[id].clicked)
       this.shuffle(this.state.cards)
 
       //If a player clicks a card with clicked value of true,   
     } else {
       // change all cards clicked value to false, reset current to zero and shuffle cards
-      this.setState({
+      this.setState((curState) => ({
         currentScore: 0,
-        // cards: this.state.cards === "true"
-      })
+        // cards: curState.cards.map(card => {
+        //   card.clicked = "false";
+        // })
+      }))
 
-      console.log('You Lose')
-      console.log(this.state.cards[id].id)
-      console.log(this.state.cards[id].clicked)
       this.shuffle(this.state.cards)
-
     }
   }
-  //If current score is greater than high score, 
-  // make current score new high score
 
-  render() {
-    return (
-      <div>
-        {/*  */}
-        <Wrapper />
-        {/* Import header component, using currentScore and highScore from state as props */}
-        <Header current={this.state.currentScore} high={this.state.highScore} />
-        {/* Import jumbtoron component */}
-        <Jumbotron />
+    render() {
+      return (
+        <div>
+          {/* Import header component, using currentScore and highScore from state as props */}
+          <Header current={this.state.currentScore} high={this.state.highScore} />
+          {/* Import jumbtoron component */}
+          <Jumbotron />
 
-        {/* Call highscore function here to avoid hoisting error */}
-        {this.highScore(this.state.currentScore)}
-        {this.state.cards.map(card => (
+          {/* Call highscore function here to avoid hoisting error */}
+          {this.highScore(this.state.currentScore)}
+          {this.state.cards.map(card => (
+            // <Wrapper>
+            <Card
+              key={card.id}
+              image={card.image}
+              id={card.id}
+              clicked={card.clicked}
+              onClick={this.checkClick}
+            />
+            //</Wrapper>
 
-          <Card
-            key={card.id}
-            image={card.image}
-            id={card.id}
-            clicked={card.clicked}
-            onClick={this.checkClick}
-          />
+          ))}
 
-        ))}
-
-      </div>
-    )
+        </div>
+      )
+    }
   }
-}
+
 
 
 export default App;
