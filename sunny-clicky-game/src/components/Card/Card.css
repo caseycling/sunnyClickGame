@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+
+.card {
+    width: auto;
+}
+
+img {
+    width: 400px;
+    height: 300px; 
+}
