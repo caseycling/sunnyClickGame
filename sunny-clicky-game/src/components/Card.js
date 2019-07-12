@@ -1,11 +1,11 @@
 import React from 'react'
 
-let Card = props => (
+const Card = props => (
     
     <div className = "card mb-4" >
         <div className="card-body">
-            <p className="card-text">Card content</p>
-            <img alt={props.name} src={props.src} id={props.id} cliked={props.clicked}/>
+            <p className="card-text">{props.name}{props.id}{props.src}{props.clicked}</p>
+            <img alt={props.id} src={props.image} id={props.id} clicked={props.clicked}></img>
         </div>
     </div>
 );
