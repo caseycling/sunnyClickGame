@@ -14,30 +14,63 @@ class App extends React.Component {
   }
 
   //On clicking a card, check if its clicked value is true
+  checkClick = (id) => {
+     let score = this.state.currentScore;
+    //If a player clicks a card with clicked value of false, 
+    if(this.state.cards[id-1].clicked === "false") {
+      // change clicked value to true, increase current by one and shuffle cards
+      console.log("working")
+      console.log(score)
+      this.setState((curState) => ({
+        currentScore: score + 1,
+        cards: curState.cards.map(card => {
+          if(card.id === id) {
+            card.clicked = "true"
+          }
+          return card;
+        }),
+        highScore: curState.highScore
+      }))
+      console.log(this.state.currentScore)
+    //If a player clicks a card with clicked value of true,   
+    } else {
+      // change all cards clicked value to false, reset current to zero and shuffle cards
+      this.setState({
+        currentScore: 0,
+        
+        
+      })
+      
+    }
+    console.log(this.state.cards[id-1])
+    
 
-  //If a player clicks a card with clicked value of false, 
-  // increase current by one and shuffle cards
-
-  //If a player clicks a card with clicked value of true, 
-  // reset current to zero and shuffle cards
+  
+ 
+  
+  
 
   //If current score is greater than high score, 
   // make current score new high score
 
+  }
+
   render() {
-    console.log(this.state.cards[0].image)
-    console.log(this.state)
     return (
       <div>
+        {/* Import header component, using currentScore and highScore from state as props */}
         <Header current={this.state.currentScore} high={this.state.highScore} />
+        {/* Import jumbtoron component */}
         <Jumbotron />
         <div>
           {this.state.cards.map(card => (
+            
             <Card 
               key={card.id}
               image={card.image}
               id={card.id}
-              clicked={card.clicked} 
+              clicked={card.clicked}
+              onClick={this.checkClick} 
             />
             
           ))}
