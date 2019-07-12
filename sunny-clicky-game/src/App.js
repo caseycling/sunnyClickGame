@@ -1,8 +1,9 @@
 import React from 'react';
-import Header from './components/Header'
-import Jumbotron from './components/Jumbotron'
+import Header from './components/Header/Header'
+import Jumbotron from './components/Jumbotron/Jumbotron'
 import Images from './characters.json'
-import Card from './components/Card'
+import Card from './components/Card/Card'
+import Wrapper from './components/Wrapper/wrapper'
 
 
 class App extends React.Component {
@@ -17,13 +18,10 @@ class App extends React.Component {
   //Build randomly displayed cards
   shuffle = (cards) => {
     let counter = cards.length;
-
     // While there are elements in the cards
     while (counter > 0) {
-      // Pick a random index
+      // Pick a random  and decrease counter by 1
       let index = Math.floor(Math.random() * counter);
-
-      // Decrease counter by 1
       counter--;
 
       // And swap the last element with it
@@ -49,8 +47,6 @@ class App extends React.Component {
     //If a player clicks a card with clicked value of false, 
     if (this.state.cards[id].clicked === "false") {
       // change clicked value to true, increase current by one and shuffle cards
-      console.log("working")
-
 
       this.setState((curState) => ({
         currentScore: score + 1,
@@ -62,52 +58,54 @@ class App extends React.Component {
         }),
         highScore: curState.highScore
       }))
-      // console.log(this.state.cards[id].id)
-      // console.log(this.state.cards[id].clicked)
+
+      console.log("score")
+      console.log(this.state.cards[id].id)
+      console.log(this.state.cards[id].clicked)
+      this.shuffle(this.state.cards)
 
       //If a player clicks a card with clicked value of true,   
     } else {
       // change all cards clicked value to false, reset current to zero and shuffle cards
       this.setState({
         currentScore: 0,
+        // cards: this.state.cards === "true"
       })
-      // console.log('You Lose')
-      // console.log(this.state.cards[id].id)
-      // console.log(this.state.cards[id].clicked)
 
+      console.log('You Lose')
+      console.log(this.state.cards[id].id)
+      console.log(this.state.cards[id].clicked)
       this.shuffle(this.state.cards)
 
     }
-    // console.log(this.state.cards[id - 1])
-
   }
   //If current score is greater than high score, 
   // make current score new high score
 
-
-
   render() {
     return (
       <div>
+        {/*  */}
+        <Wrapper />
         {/* Import header component, using currentScore and highScore from state as props */}
         <Header current={this.state.currentScore} high={this.state.highScore} />
         {/* Import jumbtoron component */}
         <Jumbotron />
-        <div>
-          {/* Call highscore function here to avoid hoisting error */}
-          {this.highScore(this.state.currentScore)}
-          {this.state.cards.map(card => (
 
-            <Card
-              key={card.id}
-              image={card.image}
-              id={card.id}
-              clicked={card.clicked}
-              onClick={this.checkClick}
-            />
+        {/* Call highscore function here to avoid hoisting error */}
+        {this.highScore(this.state.currentScore)}
+        {this.state.cards.map(card => (
 
-          ))}
-        </div>
+          <Card
+            key={card.id}
+            image={card.image}
+            id={card.id}
+            clicked={card.clicked}
+            onClick={this.checkClick}
+          />
+
+        ))}
+
       </div>
     )
   }
